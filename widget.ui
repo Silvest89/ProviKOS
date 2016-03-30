@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>Widget</class>
- <widget class="QWidget" name="Widget">
+ <class>ProviKOS</class>
+ <widget class="QWidget" name="ProviKOS">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>35</width>
-    <height>35</height>
+    <width>32</width>
+    <height>32</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Widget</string>
+   <string>ProviKOS</string>
   </property>
-  <widget class="KOSImage" name="graphicsView">
+  <widget class="KOSImage" name="pushButton">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>35</width>
-     <height>35</height>
+     <width>32</width>
+     <height>32</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{border-image:url(:/image/provikos.png);}
+QPushButton:checked{border-image:url(:/image/provikos-2.png);}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
   </widget>
  </widget>
@@ -28,7 +41,7 @@
  <customwidgets>
   <customwidget>
    <class>KOSImage</class>
-   <extends>QGraphicsView</extends>
+   <extends>QPushButton</extends>
    <header>kosimage.h</header>
   </customwidget>
  </customwidgets>

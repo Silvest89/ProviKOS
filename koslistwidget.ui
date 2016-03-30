@@ -22,7 +22,7 @@
   <property name="styleSheet">
    <string notr="true"/>
   </property>
-  <widget class="QListWidget" name="listWidget">
+  <widget class="KOSList" name="listWidget">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -31,8 +31,19 @@
      <height>220</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">QListWidget{border:none;outline: none;}
+QListWidget::item:selected{background-color: red;}</string>
+   </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>KOSList</class>
+   <extends>QListWidget</extends>
+   <header>koslist.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

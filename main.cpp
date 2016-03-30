@@ -6,8 +6,8 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    Widget w;
-    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
+    ProviKOS w;
+    w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::WindowStaysOnTopHint);
     w.show();
 
     ClipBoardListener* listener = new ClipBoardListener(&w);

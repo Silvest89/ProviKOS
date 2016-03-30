@@ -4,7 +4,9 @@
 #include <QObject>
 #include <QClipboard>
 
-class Widget;
+class KOSChecker;
+
+class ProviKOS;
 
 class ClipBoardListener : public QObject
 {
@@ -21,8 +23,8 @@ public slots:
 private:
     QClipboard* board;
     int keyPress;
-    Widget* parent;
-
+    ProviKOS* parent;
+    KOSChecker* kosChecker;
 };
 
 #endif // KOSCLIPBOARDLISTENER_H

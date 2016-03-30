@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/image">
+        <file>provikos.png</file>
+        <file>provikos-2.png</file>
+    </qresource>
+</RCC>

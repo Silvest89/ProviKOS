@@ -1,10 +1,10 @@
 #ifndef KOSIMAGE_H
 #define KOSIMAGE_H
-#include <QGraphicsView>
+#include <QPushButton>
 #include <QMouseEvent>
 #include "widget.h"
 
-class KOSImage : public QGraphicsView
+class KOSImage : public QPushButton
 {
     Q_OBJECT
 public:
@@ -13,8 +13,10 @@ public:
 protected:
     void mousePressEvent(QMouseEvent *evt)
     {
+        oldPos = evt->globalPos();
         parent->mousePressEvent(evt);
         //parent->oldPos = evt->globalPos();
+        //handleButton(evt);
     }
 
     void mouseMoveEvent(QMouseEvent *evt)
@@ -24,9 +26,18 @@ protected:
         //parent->oldPos = evt->globalPos();
         parent->mouseMoveEvent(evt);
     }
+    void mouseReleaseEvent(QMouseEvent *event){
+        if(oldPos == event->globalPos())
+            handleButton(event);
+    }
+
+    void handleButton(QMouseEvent *evt);
+
+    QPixmap pix;
+    QPoint oldPos;
 
 private:
-    Widget* parent;
+    ProviKOS* parent;
 };
 
 #endif // KOSIMAGE_H

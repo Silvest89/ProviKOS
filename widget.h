@@ -5,19 +5,19 @@
 #include <QMouseEvent>
 #include <QNetworkAccessManager>
 
-class KOSListWidget;
+#include "koslistwidget.h"
 
 namespace Ui {
-class Widget;
+class ProviKOS;
 }
 
-class Widget : public QWidget
+class ProviKOS : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit Widget(QWidget *parent = 0);
-    ~Widget();
+    explicit ProviKOS(QWidget *parent = 0);
+    ~ProviKOS();
 
     QPoint oldPos;
     void mousePressEvent(QMouseEvent *evt)
@@ -29,18 +29,18 @@ public:
     {
         const QPoint delta = evt->globalPos() - oldPos;
         move(x()+delta.x(), y()+delta.y());
+        kosListWidget->move(kosListWidget->x() + delta.x(), kosListWidget->y()+delta.y());
         oldPos = evt->globalPos();
     }
     KOSListWidget* kosListWidget;
 
 public slots:
-    void portraitReply(QNetworkReply *reply);
 
 protected:
 
 
 private:
-    Ui::Widget *ui;
+    Ui::ProviKOS *ui;
     QNetworkAccessManager *manager;
 };
 

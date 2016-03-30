@@ -3,6 +3,9 @@
 
 #include <QWidget>
 
+
+class KOSList;
+
 namespace Ui {
 class KOSListWidget;
 }
@@ -15,8 +18,7 @@ public:
     explicit KOSListWidget(QWidget *parent = 0);
     ~KOSListWidget();
 
-protected:
-    virtual void paintEvent(QPaintEvent*);
+    KOSList* listWidget;
 
 private:
     Ui::KOSListWidget *ui;
