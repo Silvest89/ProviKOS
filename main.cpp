@@ -1,6 +1,7 @@
 #include "widget.h"
 #include <QApplication>
 #include "clipboardlistener.h"
+#include "koslistwidget.h"
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +10,7 @@ int main(int argc, char *argv[])
     w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint);
     w.show();
 
-    ClipBoardListener* listener = new ClipBoardListener();
+    ClipBoardListener* listener = new ClipBoardListener(&w);
 
     return a.exec();
 }

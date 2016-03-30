@@ -5,6 +5,7 @@
 #include <QMouseEvent>
 #include <QNetworkAccessManager>
 
+class KOSListWidget;
 
 namespace Ui {
 class Widget;
@@ -18,10 +19,7 @@ public:
     explicit Widget(QWidget *parent = 0);
     ~Widget();
 
-public slots:
-    void portraitReply(QNetworkReply *reply);
-
-protected:
+    QPoint oldPos;
     void mousePressEvent(QMouseEvent *evt)
     {
         oldPos = evt->globalPos();
@@ -33,10 +31,16 @@ protected:
         move(x()+delta.x(), y()+delta.y());
         oldPos = evt->globalPos();
     }
+    KOSListWidget* kosListWidget;
+
+public slots:
+    void portraitReply(QNetworkReply *reply);
+
+protected:
+
 
 private:
     Ui::Widget *ui;
-    QPoint oldPos;
     QNetworkAccessManager *manager;
 };
 

@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <widget class="QGraphicsView" name="graphicsView">
+  <widget class="KOSImage" name="graphicsView">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -25,6 +25,13 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>KOSImage</class>
+   <extends>QGraphicsView</extends>
+   <header>kosimage.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

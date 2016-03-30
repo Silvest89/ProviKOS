@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QClipboard>
 
+class Widget;
+
 class ClipBoardListener : public QObject
 {
     Q_OBJECT
@@ -19,6 +21,7 @@ public slots:
 private:
     QClipboard* board;
     int keyPress;
+    Widget* parent;
 
 };
 

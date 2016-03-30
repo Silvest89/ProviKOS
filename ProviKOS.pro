@@ -14,9 +14,14 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         widget.cpp \
-    clipboardlistener.cpp
+    clipboardlistener.cpp \
+    kosimage.cpp \
+    koslistwidget.cpp
 
 HEADERS  += widget.h \
-    clipboardlistener.h
+    clipboardlistener.h \
+    kosimage.h \
+    koslistwidget.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    koslistwidget.ui

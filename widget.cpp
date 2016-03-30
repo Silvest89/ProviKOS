@@ -9,13 +9,17 @@
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QDebug>
+#include "koslistwidget.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-
+    kosListWidget = new KOSListWidget();
+    kosListWidget->setWindowFlags(Qt::Window | Qt::FramelessWindowHint | Qt::SubWindow);
+    //MoveKOS* moveKOS = new MoveKOS(this);
+    //this->installEventFilter(moveKOS);
 
     QUrl url("http://kos.cva-eve.org/api/");
     QUrlQuery query;
@@ -29,6 +33,7 @@ Widget::Widget(QWidget *parent) :
     QNetworkRequest request(url);
     manager->get(request);
     connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(portraitReply(QNetworkReply*)));
+
 }
 
 Widget::~Widget()
@@ -47,6 +52,4 @@ void Widget::portraitReply(QNetworkReply *reply)
         QJsonObject obj = value.toObject();
         qDebug() << obj["kos"].toBool();
     }
-
-
 }
