@@ -23,7 +23,8 @@ void ClipBoardListener::changedSlot(QClipboard::Mode mode)
     if(QApplication::clipboard()->mimeData()->hasText())
     {
         keyPress++;
-        QTimer::singleShot(500, this, SLOT(doubleCopyPress()));
+        doubleCopyPress();
+        //QTimer::singleShot(500, this, SLOT(doubleCopyPress()));
     }
 }
 
@@ -41,5 +42,5 @@ void ClipBoardListener::doubleCopyPress(){
             parent->kosListWidget->show();
         }
     }
-    keyPress = 0;
+    //keyPress = 0;
 }
