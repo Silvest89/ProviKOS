@@ -19,6 +19,8 @@ void KOSList::addItem(const QString & label){
 
 void KOSList::removeKOSEntry(){
     delete this->takeItem(0);
+    if(this->count() == 0)
+        ((QWidget*)this->parent())->hide();
 }
 
 

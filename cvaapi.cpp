@@ -50,7 +50,7 @@ void CVAApi::getKOSResponse(QNetworkReply *reply)
             QJsonObject obj = value.toObject();
             QJsonObject corp = obj.value(QString("corp")).toObject();
             QJsonObject alliance = corp.value(QString("alliance")).toObject();
-            if(obj["kos"].toBool() == true || corp["kos"].toBool() || alliance["kos"].toBool())
+            if((obj["kos"].toBool() || corp["kos"].toBool() || alliance["kos"].toBool()) == true)
                 kos = true;
 
             sendKOSResponse(obj["label"].toString(), kos);
